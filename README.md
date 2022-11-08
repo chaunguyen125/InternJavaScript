@@ -44,6 +44,6 @@ But it's not like that. The exact result we are received is:
 
 > there
 
-This happens because of Event Loop. We have setTimeout function in the code, when browser run this function, the code will be executed at WebAPIs part at least 5000ms. So Stack now is empty, so the following code lines are executed. The result of the code line as 'console.log('JSConfEU');' display before 'console.log('there');'. After at least 5000ms, the task as cb() function will be move to Task Queue (similar to Callback Queue) and then move to Stack to be executed.
+This happens because of Event Loop. We have setTimeout function in the code, when browser run this function, the code will be executed at WebAPIs part during 5000ms. So Stack now is empty, so the following code lines are executed. The result of the code line as 'console.log('JSConfEU');' display before 'console.log('there');'. After at least 5000ms, the task as cb() function will be move to Task Queue (similar to Callback Queue) and then move to Stack to be executed.
 
 Besides Task Queue and Callback Queue, we also have Render Queue to set priority for some tasks. This is because these tasks must be executed before. For example, we usually want to render layout of the website before its functions.
