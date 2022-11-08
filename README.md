@@ -31,13 +31,17 @@ console.log('JSConfEU');
 If JavaScript is synchronous, the result must be like:
 
 > Hi
+
 > there
+
 > JSConfEU
 
 But it's not like that. The exact result we are received is:
 
 > Hi
+
 > JSConfEU
+
 > there
 
 This happens because of Event Loop. We have setTimeout function in the code, when browser run this function, the code will be executed at WebAPIs part at least 5000ms. So Stack now is empty, so the following code lines are executed. The result of the code line as 'console.log('JSConfEU');' display before 'console.log('there');'. After at least 5000ms, the task as cb() function will be move to Task Queue (similar to Callback Queue) and then move to Stack to be executed.
