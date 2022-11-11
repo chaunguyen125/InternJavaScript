@@ -1,4 +1,4 @@
-# Database Research
+# Database Researching
 
 ## Basics of Database and Database Management System
 
