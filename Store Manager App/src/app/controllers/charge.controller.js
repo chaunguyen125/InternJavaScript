@@ -5,12 +5,10 @@ const functions = require('../../config/function.config');
 class ChargeController {
     //?product_id=...&order_id=...&quantity=...&unit=...&total=...&limit=...&pageNum=...
     async findCharge(req, res) {
-        const sql = functions.queryWithSort(req.query, 'charge');
+        const sql = functions.buildSQL(req.query, 'charge');
         try {
             const result = await db.query(sql);
-            // res.json(result);
             res.json(result);
-            // console.log(result);
         } catch (error) {
             console.log('error', error);
         } 
@@ -34,8 +32,7 @@ class ChargeController {
     async updateCharge(req, res) {
         var formData = req.body;
         var id = req.params.id;
-        // console.log(formData);
-        // console.log([ ...Object.values(formData), name]);
+        console.log("formData: "+formData);
         try {
             await db.query('UPDATE charge SET product_id = $1, order_id = $2, quantity = $3, unit = $4, total = $5 WHERE id = $6', [ ...Object.values(formData), id]);
             console.log('update charge success');
@@ -50,10 +47,8 @@ class ChargeController {
 
     async deleteCharge(req, res) {
         var formData = req.body; // {field, value}
-        // var name = req.params.product_name;
         console.log(formData);
-        console.log(Object.values(formData));
-        // console.log([ ...Object.values(formData), name]);
+        console.log(Object.values("formData"+formData));
 
         try {
             await db.query(`DELETE FROM charge WHERE ${formData.field} = $1; `, [formData.value]);

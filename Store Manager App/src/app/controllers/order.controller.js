@@ -3,31 +3,6 @@ const functions = require('../../config/function.config');
 
 
 class OrderController {
-    //Store list
-
-    //?store_name=...&address=...
-    // async findOrders(req, res) { //like '%name%'
-    //     // console.log('query params', req.query);
-
-    //     const {store_name, address} = req.query;
-    //     const whereClause = [];
-    //     if(store_name) whereClause.push(`store_name like '%${store_name}%'`);
-    //     if(address) whereClause.push(`address like '%${address}%'`);
-    //     const where = whereClause.length > 0 ? whereClause.join(' and ') : '1=1';
-    //     const sql = `SELECT * FROM stores where ${where}`;
-    //     console.log(sql);
-    //     try {
-    //         const result = await db.query(sql);
-    //         // res.json(result);
-    //         res.json(result);
-    //         // console.log(result);
-    //     } catch (error) {
-    //         console.log('error', error);
-    //     } 
-        
-    // }
-
-
     //Create Store
     async createOrder(req, res) {
         var formData = req.body;
@@ -49,8 +24,7 @@ class OrderController {
     async updateOrder(req, res) {
         var formData = req.body;
         var id = req.params.id;
-        // console.log(formData);
-        // console.log([ ...Object.values(formData), name]);
+        console.log("formData: "+formData);
         try {
             await db.query('UPDATE orders SET order_code = $1 WHERE id = $2', [ ...Object.values(formData), id]);
             console.log('update order success');
@@ -64,10 +38,7 @@ class OrderController {
     //Delete order
     async deleteOrder(req, res) {
         var formData = req.body; // {field, value}
-        // var name = req.params.product_name;
-        console.log(formData);
-        console.log(Object.values(formData));
-        // console.log([ ...Object.values(formData), name]);
+        console.log("formData: "+formData);
 
         try {
             await db.query(`DELETE FROM orders WHERE ${formData.field} = $1; `, [formData.value]);
@@ -80,12 +51,10 @@ class OrderController {
 
     //?limit=&order_code=&pagenumber=
     async readOrder(req, res) { //
-        const sql = functions.queryWithSort(req.query, 'orders');
+        const sql = functions.buildSQL(req.query, 'orders');
         try {
             const result = await db.query(sql);
-            // res.json(result);
             res.json(result);
-            // console.log(result);
         } catch (error) {
             console.log('error', error);
         } 

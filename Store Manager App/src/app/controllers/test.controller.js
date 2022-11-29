@@ -3,17 +3,8 @@ const functions = require('../../config/function.config');
 const { log } = require('console');
 
 class TestController {
-        // ?where={name: {like: 'a'}, price: { between: [1000, 2000]}}&limit=10&skip=0&order=[price asc]
+    // ?where={name: {like: 'a'}, price: { between: [1000, 2000]}}&limit=10&skip=0&order=[price asc]
     test(req, res) {
-        //?a={operator:value,
-        //sort: asc/desc}
-        // console.log(req.query);
-        var limit = req.query.limit * 1;
-        var pageNum = req.query.pageNum * 1;
-        var offet = limit * (pageNum - 1);
-        console.log(limit, pageNum, offet);
-        const whereClause = [];
-        const orderByClause = [];
         const mapping = {
             like: "like",
             gt: ">",
@@ -22,68 +13,60 @@ class TestController {
             lt: "<",
             eq: "="
         };
-        for (let key in req.query) {
-            if (key != 'limit' && key != 'pageNum' && key != 'order' && key != 'skip') {
-                try {
-                    const k = req.query[key];
-                    console.log("query[key] "+k, typeof k);
-                    // console.log('key===>', k, typeof k);
+        let { limit, pageNum, where, order } = req.query;
+        console.log(limit, pageNum);
+        let limitSegment = '';
+        if (!Number.isNaN(Number(limit)))
+            limitSegment = `LIMIT ${limit}`;
 
-                    let value = JSON.parse(k);
-                    console.log("value: " + value + typeof value) ;
-                    for (var key2 in value) {
-                        console.log("key2: " + key2);
-                        for (let key3 in value[key2]) {
-                            console.log('key 3: ' + key3);
-                            if (key3 == 'between')
-                                // console.log(value[key2][key3]);
-                                whereClause.push(`${key2} ${key3} ${value[key2][key3][0]} and ${value[key2][key3][1]}`);
-                            else
-                                whereClause.push(`${key2} ${mapping[key3]} ${value[key2][key3]}`);
+        if (Number.isNaN(Number(pageNum)))
+            pageNum = 1;
+        let offset = Number(limit) * (Number(pageNum) - 1);
 
-                        }
+        let offetSegment = '';
+        if (!Number.isNaN(Number(offset)))
+            offetSegment = `OFFSET ${offset}`;
+
+        let orderSegment = '';
+        if (order) {
+            orderSegment = `ORDER BY`
+            let value = JSON.parse(order);
+            console.log(value);
+            for (let key in value) {
+                orderSegment = `${orderSegment} ${value[key]}`;
+                console.log("order key " + key);
+            }
+        }
+
+        let whereSegment = '';
+        if (where) {
+            whereSegment = `WHERE`
+            // where={"name": {"like": "a"}, "price": {"between": [1000, 2000]}}
+            console.log("where: " + where + typeof where);
+            let value = JSON.parse(where);
+            console.log("value: " + value + typeof value);
+            for (let key in value) {
+                console.log("value[key]");
+                console.log(value[key]);
+                console.log("key : " + key);
+                for(let subKey in value[key]) {
+                    try {
+                        if (subKey == 'between')
+                            whereSegment = `${whereSegment} ${key} ${subKey} ${value[key][subKey][0]} and ${value[key][subKey][1]}`;
+                        else
+                        whereSegment = `${whereSegment} ${key} ${mapping[subKey]} ${value[key][subKey]}`;
+                    }
+                    catch (e) {
+                        console.log("error: " + e);
                     }
 
                 }
-                catch (e) {
-                    console.log(e);
-                }
             }
-            if (key == 'order') {
-                try {
-                    let value = JSON.parse(req.query[key]);
-                    console.log(value);
-                    for (key in value) {
-                        orderByClause.push(`${value[key]}`);
-                        console.log(key);
-                    }
-                    console.log('order clause ' + orderByClause);
-
-                }
-                catch (e) {
-                    console.log(e);
-                }
-            }
-
         }
-
-        // console.log('where clause ' + whereClause);
-        
-        let where = whereClause.length > 0 ? whereClause.join(' and ') : '1=1';
-        console.log(where);
-        if(orderByClause.length > 0) {
-            let order = orderByClause.length > 0 ? orderByClause.join(' , ') : "";
-            console.log(order);
-            var sql = `SELECT * FROM X where ${where} order by ${order} limit ${limit} offset ${offet} `;
-            
-        }
-        else {
-
-            var sql = `SELECT * FROM X where ${where} limit ${limit} offset ${offet} `;
-        }
-
-
-        console.log(sql);
+        console.log("order clause: " + orderSegment);
+        console.log("order clause: " + limitSegment);
+        console.log("offset clause: " + offetSegment);
+        console.log("where clause: " + whereSegment);      
         res.json('success');
     }
 }

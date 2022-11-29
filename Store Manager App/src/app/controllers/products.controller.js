@@ -28,7 +28,7 @@ class ProductController {
     }
 
     async findProductsAdv(req, res) {
-        const sql = functions.queryWithSortLastPleaseeeee(req.query, 'products');
+        const sql = functions.buildSQL(req.query, 'products');
         // console.log(sql);
         try {
             const result = await db.query(sql);
