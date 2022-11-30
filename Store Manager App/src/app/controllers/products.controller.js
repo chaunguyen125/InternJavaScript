@@ -55,8 +55,8 @@ class ProductController {
 
     //:product_name
     async updateProduct(req, res) {
-        var formData = req.body;
-        var name = req.params.product_name;
+        let formData = req.body;
+        let name = req.params.product_name;
         // console.log(formData);
         // console.log([ ...Object.values(formData), name]);
         try {
@@ -72,8 +72,7 @@ class ProductController {
 
 
     async deleteProduct(req, res) {
-        var formData = req.body; // {field, value}
-        // var name = req.params.product_name;
+        let formData = req.body; // {field, value}
         console.log(formData);
         console.log(Object.values(formData));
         // console.log([ ...Object.values(formData), name]);
@@ -90,7 +89,7 @@ class ProductController {
     async readProductByHieusAct(req, res) { //query params req.query
         try {
             console.log('Request', req.query)
-            var formData = req.body; // {field, value}
+            let formData = req.body; // {field, value}
             const result = await db.query(`SELECT * FROM products WHERE ${formData.field} = $1; `, [formData.value]);
             // res.json(result);
             res.json(result);
@@ -104,11 +103,11 @@ class ProductController {
     //?limit=&category=&pagenumber=
     async readProductByCategory (req, res) { //
         try {
-            var formData = req.body; // {field, value}
-            var limit = req.query.limit*1;
-            var category = req.query.category;
-            var pageNum = req.query.pageNum*1;
-            var offet = limit*(pageNum - 1);
+            let formData = req.body; // {field, value}
+            let limit = req.query.limit*1;
+            let category = req.query.category;
+            let pageNum = req.query.pageNum*1;
+            let offet = limit*(pageNum - 1);
             console.log(limit, category, pageNum, offet);
 
             const result = await db.query('SELECT products.product_name FROM products JOIN category ON category.category_name = $1 and products.id_category = category.id'

@@ -1,10 +1,12 @@
 // const db=require('../config/postgres.config');
+const author=require('../config/authorization.config');
 const ProductController = require('../app/controllers/products.controller');
 const StoreController = require('../app/controllers/stores.controller');
 const OrderController = require('../app/controllers/order.controller');
 const ChargeController = require('../app/controllers/charge.controller');
 const CategoryController = require('../app/controllers/category.controller');
 const BookingInformationController = require('../app/controllers/booking_information.controller');
+const AuthenticationController = require('../app/controllers/authentication.controller');
 const TestController = require('../app/controllers/test.controller');
 
 function route(app) {
@@ -50,6 +52,10 @@ function route(app) {
     app.put('/updateBooking/:id', BookingInformationController.updateBookingInformation); //Update
     app.post('/deleteBooking', BookingInformationController.deleteBookingInformation); //Delete
 
+    //Authentication
+    app.post('/signup', AuthenticationController.signUp);
+    app.post('/login', AuthenticationController.logIn);
+    app.get('/home',author.authorization, (req,res) => res.json('login success') );
 
     //Test
     app.get('/test', TestController.test);
