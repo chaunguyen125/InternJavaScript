@@ -12,7 +12,7 @@ class AuthenticationController {
         console.log(`select user_name from users where user_name = '${formData["user_name"]}'`);
         let checkUser = await db.query(`select user_name from users where user_name = '${formData["user_name"]}'`);
         console.log("checkuser: " + checkUser);
-        if (checkUser.length == 1) return res.json('fail');
+        if (checkUser.length > 1) return res.json('fail');
         else {
             bcrypt.hash(formData["password"], saltRounds, function(err, hash) {
                 // Store hash (pass) in your password DB.
