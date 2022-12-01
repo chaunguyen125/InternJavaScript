@@ -7,6 +7,7 @@ const ChargeController = require('../app/controllers/charge.controller');
 const CategoryController = require('../app/controllers/category.controller');
 const BookingInformationController = require('../app/controllers/booking_information.controller');
 const AuthenticationController = require('../app/controllers/authentication.controller');
+const RoleController = require('../app/controllers/role.controller');
 const TestController = require('../app/controllers/test.controller');
 
 function route(app) {
@@ -56,6 +57,10 @@ function route(app) {
     app.post('/signup', AuthenticationController.signUp);
     app.post('/login', AuthenticationController.logIn);
     app.get('/home',author.authorization, (req,res) => res.json('login success') );
+
+
+    //Role
+    app.post('/rolePermission', RoleController.rolePermission);
 
     //Test
     app.get('/test', TestController.test);
