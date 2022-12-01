@@ -28,11 +28,11 @@ class AuthenticationController {
     async logIn(req, res) {
         let formData = req.body; //{user_name: value, password=value}
         console.log("formData: ", JSON.stringify(formData));
-        let checkUser = await db.query(`select user_name, password from users where user_name = '${formData["user_name"]}'`);
+        let checkUser = await db.query(`select user_name, password, role_name from  users, role_mapping,roles where users.user_name=$1 and role_mapping.role_id = roles.id and users.id=role_mapping.user_id;`, [formData["user_name"]]);
         console.log(checkUser);
         //checkUser if exist
-        if (checkUser && checkUser.length == 1) {
-            console.log("user exist: " +JSON.stringify( checkUser[0]));
+        if (checkUser && checkUser.length > 0) {
+            console.log("user exist: " + JSON.stringify(checkUser[0]));
             let checkPass = checkUser[0]["password"];
             console.log("checkpass");
             console.log(checkPass);
@@ -43,11 +43,11 @@ class AuthenticationController {
 
             if (checkPassAct) {
                 console.log("login");
-                const token = jwt.sign({ data: { user_name: formData["user_name"] } }, process.env.MY_SECRET_KEY, { expiresIn: '1h' });
+                const token = jwt.sign({ data: { user_name: formData["user_name"], role: checkUser[0]["role_name"] } }, process.env.MY_SECRET_KEY, { expiresIn: '1h' });
                 console.log("token: " + token);
                 res.json('success login');
             }
-            else console.log("fail login");
+            else res.json('fail login');
 
         }
     }

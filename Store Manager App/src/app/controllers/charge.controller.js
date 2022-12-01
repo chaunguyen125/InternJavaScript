@@ -70,6 +70,7 @@ class ChargeController {
             console.log(limit, category,pageNum, offet);
 
             const result = await db.query('SELECT products.product_name FROM products JOIN category ON category.category_name = $1 and products.id_category = category.id'
+            // SELECT products.product_name FROM products, category where category.category_name = 'goods' and products.id_category = category.id'
             + ' limit $2 offset $3', [category, limit, offet]);
             // res.json(result);
             res.json(result);

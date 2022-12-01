@@ -57,6 +57,7 @@ function route(app) {
     app.post('/signup', AuthenticationController.signUp);
     app.post('/login', AuthenticationController.logIn);
     app.get('/home',author.authorization, (req,res) => res.json('login success') );
+    app.get('/admin',author.checkAuthorAdminRole, (req,res) => res.json('access admin success') );
 
 
     //Role

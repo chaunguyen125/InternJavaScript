@@ -16,7 +16,8 @@ class RoleController {
             db.query(`UPDATE role_mapping SET role_id = $1 where id = $2`,[role_id[0]["id"],checkUser[0]["id"]]);
             res.json('update role success')
         }
-        else if(checkUser && checkUser.length == 0) {
+        else
+         if(checkUser && checkUser.length == 0) {
             db.query('INSERT INTO role_mapping (user_id, role_id) VALUES ($1, $2) RETURNING *', [user_id[0]["id"], role_id[0]["id"]]);
             res.json('insert role success');
         }
