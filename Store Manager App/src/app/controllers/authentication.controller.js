@@ -32,7 +32,7 @@ class AuthenticationController {
         console.log(checkUser);
         //checkUser if exist
         if (checkUser && checkUser.length > 0) {
-            console.log("user exist: " + JSON.stringify(checkUser[0]));
+            console.log("user exist: " + JSON.stringify(checkUser));
             let checkPass = checkUser[0]["password"];
             console.log("checkpass");
             console.log(checkPass);
@@ -43,7 +43,8 @@ class AuthenticationController {
 
             if (checkPassAct) {
                 console.log("login");
-                const token = jwt.sign({ data: { user_name: formData["user_name"], role: checkUser[0]["role_name"] } }, process.env.MY_SECRET_KEY, { expiresIn: '1h' });
+                let role = checkUser.map((user) => user["role_name"]);
+                const token = jwt.sign({ data: { user_name: formData["user_name"], role } }, process.env.MY_SECRET_KEY, { expiresIn: '1h' });
                 console.log("token: " + token);
                 res.json('success login');
             }
