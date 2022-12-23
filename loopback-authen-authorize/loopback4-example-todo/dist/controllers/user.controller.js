@@ -9,6 +9,7 @@ const tslib_1 = require("tslib");
 // License text available at https://opensource.org/licenses/MIT
 const authentication_1 = require("@loopback/authentication");
 const authentication_jwt_1 = require("@loopback/authentication-jwt");
+const keys_1 = require("../keys");
 const core_1 = require("@loopback/core");
 const repository_1 = require("@loopback/repository");
 const rest_1 = require("@loopback/rest");
@@ -16,6 +17,7 @@ const security_1 = require("@loopback/security");
 const bcryptjs_1 = require("bcryptjs");
 const console_1 = require("console");
 const lodash_1 = tslib_1.__importDefault(require("lodash"));
+const jwt_service_1 = require("../services/jwt.service");
 let NewUserRequest = class NewUserRequest extends authentication_jwt_1.User {
 };
 tslib_1.__decorate([
@@ -67,7 +69,10 @@ let UserController = class UserController {
         return { token };
     }
     async whoAmI(currentUserProfile) {
-        return currentUserProfile[security_1.securityId];
+        console.log(currentUserProfile);
+        const user = currentUserProfile[security_1.securityId];
+        // console.log("user: "+ JSON.stringify(user));
+        return currentUserProfile;
     }
     async signUp(newUserRequest) {
         const password = await (0, bcryptjs_1.hash)(newUserRequest.password, await (0, bcryptjs_1.genSalt)());
@@ -153,10 +158,11 @@ tslib_1.__decorate([
 ], UserController.prototype, "signUp", null);
 UserController = tslib_1.__decorate([
     tslib_1.__param(0, (0, core_1.inject)(authentication_jwt_1.TokenServiceBindings.TOKEN_SERVICE)),
-    tslib_1.__param(1, (0, core_1.inject)(authentication_jwt_1.UserServiceBindings.USER_SERVICE)),
+    tslib_1.__param(1, (0, core_1.inject)(keys_1.UserServiceBindings.USER_SERVICE)),
     tslib_1.__param(2, (0, core_1.inject)(security_1.SecurityBindings.USER, { optional: true })),
     tslib_1.__param(3, (0, repository_1.repository)(authentication_jwt_1.UserRepository)),
-    tslib_1.__metadata("design:paramtypes", [Object, authentication_jwt_1.MyUserService, Object, authentication_jwt_1.UserRepository])
+    tslib_1.__metadata("design:paramtypes", [jwt_service_1.JWTService,
+        authentication_jwt_1.MyUserService, Object, authentication_jwt_1.UserRepository])
 ], UserController);
 exports.UserController = UserController;
 //# sourceMappingURL=user.controller.js.map

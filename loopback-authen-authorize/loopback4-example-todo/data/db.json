@@ -1,8 +1,8 @@
 {
   "ids": {
     "Todo": 5,
-    "User": 2,
-    "UserCredentials": 2
+    "User": 12,
+    "UserCredentials": 12
   },
   "models": {
     "Todo": {
@@ -12,10 +12,28 @@
       "4": "{\"title\":\"crush rebel scum\",\"desc\":\"Every.Last.One.\",\"id\":4}"
     },
     "User": {
-      "fcfa49a0-9ca1-44d5-aaf4-0416d407b859": "{\"id\":\"fcfa49a0-9ca1-44d5-aaf4-0416d407b859\",\"email\":\"testuser2@abc.com\"}"
+      "fcfa49a0-9ca1-44d5-aaf4-0416d407b859": "{\"id\":\"fcfa49a0-9ca1-44d5-aaf4-0416d407b859\",\"email\":\"testuser2@abc.com\"}",
+      "03159775-6c3e-4399-b7ee-0c4f7d738610": "{\"id\":\"03159775-6c3e-4399-b7ee-0c4f7d738610\",\"email\":\"chau@nexpando\"}",
+      "878de95a-dd26-4097-959b-6cf030b68ae5": "{\"id\":\"878de95a-dd26-4097-959b-6cf030b68ae5\",\"email\":\"chau@nexpando.com\"}",
+      "d68753cd-239e-40b9-859f-9721c01fe94e": "{\"id\":\"d68753cd-239e-40b9-859f-9721c01fe94e\",\"email\":\"hieubro@nexpando.com\"}",
+      "85e16698-8d6e-4f71-a9fa-cfd4fe42f579": "{\"id\":\"85e16698-8d6e-4f71-a9fa-cfd4fe42f579\",\"email\":\"hieubrother@nexpando.com\"}",
+      "c8e35bb8-0ab1-450d-ade4-114cd8d3b9d6": "{\"id\":\"c8e35bb8-0ab1-450d-ade4-114cd8d3b9d6\",\"email\":\"tambrother@nexpando.com\",\"role\":\"admin\"}",
+      "1314c44a-c3e0-499e-aba6-16c92d4b8b1b": "{\"id\":\"1314c44a-c3e0-499e-aba6-16c92d4b8b1b\",\"email\":\"longbrother@nexpando.com\",\"role\":\"user\"}",
+      "d9516759-d497-4d67-be69-70af6b0786f8": "{\"id\":\"d9516759-d497-4d67-be69-70af6b0786f8\",\"email\":\"tuanbrother@nexpando.com\",\"role\":\"user\",\"phone\":\"333333333\"}",
+      "0591f496-3e92-4efb-a16b-f0defaa5cf56": "{\"id\":\"0591f496-3e92-4efb-a16b-f0defaa5cf56\",\"email\":\"anhtoan@nexpando.com\"}",
+      "e5de5c71-6199-4269-9c33-7156f20db842": "{\"id\":\"e5de5c71-6199-4269-9c33-7156f20db842\",\"role\":\"admin\",\"email\":\"anhquang@nexpando.com\"}"
     },
     "UserCredentials": {
-      "f5a7e8cd-3913-4e00-b93f-baa02e2dcc5e": "{\"id\":\"f5a7e8cd-3913-4e00-b93f-baa02e2dcc5e\",\"password\":\"$2a$10$Zl4oWz.ngjgFDmey5yYahuR4Y.pa441tIi.bOP4xBH9uLdAc14lty\",\"userId\":\"fcfa49a0-9ca1-44d5-aaf4-0416d407b859\"}"
+      "f5a7e8cd-3913-4e00-b93f-baa02e2dcc5e": "{\"id\":\"f5a7e8cd-3913-4e00-b93f-baa02e2dcc5e\",\"password\":\"$2a$10$Zl4oWz.ngjgFDmey5yYahuR4Y.pa441tIi.bOP4xBH9uLdAc14lty\",\"userId\":\"fcfa49a0-9ca1-44d5-aaf4-0416d407b859\"}",
+      "72e1bc11-5b2b-46f1-8ed0-8cb2e112a181": "{\"id\":\"72e1bc11-5b2b-46f1-8ed0-8cb2e112a181\",\"password\":\"$2a$10$nyNQQKZbb8wu0ExmWfnjNejglwYTntaFBS999Q0L41WepXVIsBtjG\",\"userId\":\"03159775-6c3e-4399-b7ee-0c4f7d738610\"}",
+      "1e42ba1b-b50b-4c72-9088-e2d805ad11f1": "{\"id\":\"1e42ba1b-b50b-4c72-9088-e2d805ad11f1\",\"password\":\"$2a$10$kWnzZJv9fq0vPYKqAYVDfeiqf93lUtQzjoTTDGwPukRDUxxKvBV7y\",\"userId\":\"878de95a-dd26-4097-959b-6cf030b68ae5\"}",
+      "baf10777-1b81-446b-b329-65a893a40395": "{\"id\":\"baf10777-1b81-446b-b329-65a893a40395\",\"password\":\"$2a$10$fUgOdjaa6Brrxgfg4ef1c.0zTQAFyy0kvHocLmLg7W4uSJd9UHu/i\",\"userId\":\"d68753cd-239e-40b9-859f-9721c01fe94e\"}",
+      "9ee516f6-1626-465e-8cb7-ff539a4286b7": "{\"id\":\"9ee516f6-1626-465e-8cb7-ff539a4286b7\",\"password\":\"$2a$10$3WcM3GhMWkahqjkMGgmU7eD3z.GXFonl2p.m6XtOwJwMJtP9Ekha2\",\"userId\":\"85e16698-8d6e-4f71-a9fa-cfd4fe42f579\"}",
+      "4b945c33-7b75-4b5b-a097-eaa395669a98": "{\"id\":\"4b945c33-7b75-4b5b-a097-eaa395669a98\",\"password\":\"$2a$10$wBMrDJ.rIfdfOFncUzRZSurZCRHTuLWu0eU9TBeEgjEFt1XAnKDVe\",\"userId\":\"c8e35bb8-0ab1-450d-ade4-114cd8d3b9d6\"}",
+      "d8f0051e-1265-47a3-aafc-1b0876cb76f1": "{\"id\":\"d8f0051e-1265-47a3-aafc-1b0876cb76f1\",\"password\":\"$2a$10$Cd4OVgFOE9LuuwsKcrSgGOTpwr2.InNmxZfxC8IhF2U06mIzftdTa\",\"userId\":\"1314c44a-c3e0-499e-aba6-16c92d4b8b1b\"}",
+      "a03f544d-7d83-4af8-a371-829d4eab4276": "{\"id\":\"a03f544d-7d83-4af8-a371-829d4eab4276\",\"password\":\"$2a$10$.bInu2tvjM5V/EHnKx3c.uYC1RifDeZ0P.wA9oinR/0i9CjtCuC7S\",\"userId\":\"d9516759-d497-4d67-be69-70af6b0786f8\"}",
+      "eb3b7028-27d6-49e8-9bdc-875e35cb2c82": "{\"id\":\"eb3b7028-27d6-49e8-9bdc-875e35cb2c82\",\"password\":\"$2a$10$x73Vn7VGqcNmlVNkpqtrSOL2umzPCOt4TSFkk.nmSslPyHv9ijMiO\",\"userId\":\"0591f496-3e92-4efb-a16b-f0defaa5cf56\"}",
+      "5ef596ea-44fa-42c3-971e-6cba5c83441f": "{\"id\":\"5ef596ea-44fa-42c3-971e-6cba5c83441f\",\"password\":\"$2a$10$dLn/BcLDbM1SXWuClnGt6uS.VN.Gg3i/vlJN8tpj1l7ufpqXc66eW\",\"userId\":\"e5de5c71-6199-4269-9c33-7156f20db842\"}"
     }
   }
 }

@@ -12,10 +12,10 @@ import {
   TokenServiceBindings,
   User,
   UserRepository,
-  UserServiceBindings,
 } from '@loopback/authentication-jwt';
+import { UserServiceBindings } from '../keys';
 import {inject} from '@loopback/core';
-import {model, property, repository} from '@loopback/repository';
+import {ANY, model, property, repository} from '@loopback/repository';
 import {
   get,
   getModelSchemaRef,
@@ -26,7 +26,9 @@ import {
 import {SecurityBindings, securityId, UserProfile} from '@loopback/security';
 import {genSalt, hash} from 'bcryptjs';
 import { log } from 'console';
-import _ from 'lodash';
+import _, { find } from 'lodash';
+import { use } from 'should';
+import {JWTService} from '../services/jwt.service'
 
 @model()
 export class NewUserRequest extends User {
@@ -63,12 +65,12 @@ export const CredentialsRequestBody = {
 export class UserController {
   constructor(
     @inject(TokenServiceBindings.TOKEN_SERVICE)
-    public jwtService: TokenService,
+    public jwtService: JWTService,
     @inject(UserServiceBindings.USER_SERVICE)
     public userService: MyUserService,
     @inject(SecurityBindings.USER, {optional: true})
     public user: UserProfile,
-    @repository(UserRepository) protected userRepository: UserRepository,
+    @repository(UserRepository) protected userRepository: UserRepository
   ) {}
 
   @post('/users/login', {
@@ -121,8 +123,11 @@ export class UserController {
   async whoAmI(
     @inject(SecurityBindings.USER)
     currentUserProfile: UserProfile,
-  ): Promise<string> {
-    return currentUserProfile[securityId];
+  ){
+    console.log(currentUserProfile);
+    const user = currentUserProfile[securityId];
+    // console.log("user: "+ JSON.stringify(user));
+    return currentUserProfile;
   }
 
   @post('/signup', {

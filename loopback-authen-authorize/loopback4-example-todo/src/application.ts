@@ -86,9 +86,8 @@
 // console.log('abc')
 
 import {AuthenticationComponent} from '@loopback/authentication';
-import {
-  JWTAuthenticationComponent, UserServiceBindings
-} from '@loopback/authentication-jwt';
+import { JWTAuthenticationComponent } from './jwt-authentication-component';
+
 import {BootMixin} from '@loopback/boot';
 import {ApplicationConfig} from '@loopback/core';
 import {RepositoryMixin} from '@loopback/repository';
@@ -101,6 +100,9 @@ import {ServiceMixin} from '@loopback/service-proxy';
 import path from 'path';
 import {DbDataSource} from './datasources';
 import {MySequence} from './sequence';
+import { JWTService } from './services/jwt.service';
+import { MyUserService } from './services/user.service';
+import { UserServiceBindings } from './keys';
 export {ApplicationConfig};
 
 export class TodoListApplication extends BootMixin(

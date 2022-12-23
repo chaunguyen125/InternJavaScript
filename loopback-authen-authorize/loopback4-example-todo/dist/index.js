@@ -13,6 +13,8 @@ tslib_1.__exportStar(require("@loopback/rest"), exports);
 tslib_1.__exportStar(require("./application"), exports);
 tslib_1.__exportStar(require("./models"), exports);
 tslib_1.__exportStar(require("./repositories"), exports);
+tslib_1.__exportStar(require("./keys"), exports);
+tslib_1.__exportStar(require("./types"), exports);
 async function main(options = {}) {
     const app = new application_1.TodoListApplication(options);
     await app.boot();

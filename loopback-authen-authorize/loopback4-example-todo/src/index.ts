@@ -10,6 +10,8 @@ export * from '@loopback/rest';
 export * from './application';
 export * from './models';
 export * from './repositories';
+export * from './keys';
+export * from './types';
 
 export async function main(options: ApplicationConfig = {}) {
   const app = new TodoListApplication(options);
