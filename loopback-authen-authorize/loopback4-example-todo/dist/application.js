@@ -85,6 +85,7 @@ const path_1 = tslib_1.__importDefault(require("path"));
 const datasources_1 = require("./datasources");
 const sequence_1 = require("./sequence");
 const keys_1 = require("./keys");
+const authorization_1 = require("@loopback/authorization");
 class TodoListApplication extends (0, boot_1.BootMixin)((0, service_proxy_1.ServiceMixin)((0, repository_1.RepositoryMixin)(rest_1.RestApplication))) {
     constructor(options = {}) {
         super(options);
@@ -110,8 +111,10 @@ class TodoListApplication extends (0, boot_1.BootMixin)((0, service_proxy_1.Serv
         this.component(authentication_1.AuthenticationComponent);
         // Mount jwt component
         this.component(jwt_authentication_component_1.JWTAuthenticationComponent);
+        this.component(authorization_1.AuthorizationComponent);
         // Bind datasource
         this.dataSource(datasources_1.DbDataSource, keys_1.UserServiceBindings.DATASOURCE_NAME);
+        //Authorize
     }
 }
 exports.TodoListApplication = TodoListApplication;

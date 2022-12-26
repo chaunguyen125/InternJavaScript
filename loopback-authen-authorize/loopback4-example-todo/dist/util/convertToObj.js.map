@@ -1,0 +1,1 @@
+{"version":3,"file":"convertToObj.js","sourceRoot":"","sources":["../../src/util/convertToObj.ts"],"names":[],"mappings":";AAAA,OAAO,GAAG;IAEN,eAAe,EAAE,UAAS,GAAO;QAC7B,OAAO,GAAG,CAAC,CAAC,CAAC,GAAG,CAAC,QAAQ,EAAE,CAAC,CAAC,CAAC,GAAG,CAAC;IACtC,CAAC;CAEJ,CAAA"}

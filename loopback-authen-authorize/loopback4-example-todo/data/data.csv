@@ -1,0 +1,6 @@
+email,password,roles
+admin@gmail.com,adminsystem,['admin']
+admin2@gmail.com,adminsystem,['admin']
+admin3@gmail.com,adminsystem,['admin']
+admin4@gmail.com,adminsystem,['admin']
+admin5@gmail.com,adminsystem,['admin']

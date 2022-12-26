@@ -1,8 +1,9 @@
 {
   "ids": {
     "Todo": 5,
-    "User": 12,
-    "UserCredentials": 12
+    "User": 20,
+    "UserCredentials": 20,
+    "Migrations": 1
   },
   "models": {
     "Todo": {
@@ -21,7 +22,15 @@
       "1314c44a-c3e0-499e-aba6-16c92d4b8b1b": "{\"id\":\"1314c44a-c3e0-499e-aba6-16c92d4b8b1b\",\"email\":\"longbrother@nexpando.com\",\"role\":\"user\"}",
       "d9516759-d497-4d67-be69-70af6b0786f8": "{\"id\":\"d9516759-d497-4d67-be69-70af6b0786f8\",\"email\":\"tuanbrother@nexpando.com\",\"role\":\"user\",\"phone\":\"333333333\"}",
       "0591f496-3e92-4efb-a16b-f0defaa5cf56": "{\"id\":\"0591f496-3e92-4efb-a16b-f0defaa5cf56\",\"email\":\"anhtoan@nexpando.com\"}",
-      "e5de5c71-6199-4269-9c33-7156f20db842": "{\"id\":\"e5de5c71-6199-4269-9c33-7156f20db842\",\"role\":\"admin\",\"email\":\"anhquang@nexpando.com\"}"
+      "e5de5c71-6199-4269-9c33-7156f20db842": "{\"id\":\"e5de5c71-6199-4269-9c33-7156f20db842\",\"role\":\"admin\",\"email\":\"anhquang@nexpando.com\"}",
+      "a24ee7c9-b522-418f-bb80-160c30ceba10": "{\"id\":\"a24ee7c9-b522-418f-bb80-160c30ceba10\",\"email\":\"anhhieunexpando@gmail.com\",\"roles\":[\"admin\",\"member\"]}",
+      "7538bc3b-ec05-4e2b-9859-9d18636c1cb4": "{\"id\":\"7538bc3b-ec05-4e2b-9859-9d18636c1cb4\",\"email\":\"anhtamnexpando@gmail.com\",\"roles\":[\"admin\",\"member\"]}",
+      "b2028783-a24f-4169-94b6-531edf7411aa": "{\"id\":\"b2028783-a24f-4169-94b6-531edf7411aa\",\"email\":\"quynhchauhocgioi@gmail.com\",\"roles\":[\"member\"]}",
+      "12f2247f-57cb-403c-9422-6d71f291734b": "{\"id\":\"12f2247f-57cb-403c-9422-6d71f291734b\",\"email\":\"admin@gmail.com\"}",
+      "c8b91a60-9429-412c-8dc6-5de0858ad65a": "{\"id\":\"c8b91a60-9429-412c-8dc6-5de0858ad65a\",\"email\":\"admin2@gmail.com\",\"roles\":\"['admin']\"}",
+      "2f74dafe-d5c7-4e02-8d4a-6dd0364d48b1": "{\"id\":\"2f74dafe-d5c7-4e02-8d4a-6dd0364d48b1\",\"email\":\"admin3@gmail.com\",\"roles\":\"['admin']\"}",
+      "5c022b53-dccd-4206-9cb9-0f699c6dfcbc": "{\"id\":\"5c022b53-dccd-4206-9cb9-0f699c6dfcbc\",\"email\":\"admin4@gmail.com\",\"roles\":\"['admin']\"}",
+      "babe2057-f57f-43e8-8fdb-f2ca5709e3c7": "{\"id\":\"babe2057-f57f-43e8-8fdb-f2ca5709e3c7\",\"email\":\"admin5@gmail.com\",\"roles\":\"['admin']\"}"
     },
     "UserCredentials": {
       "f5a7e8cd-3913-4e00-b93f-baa02e2dcc5e": "{\"id\":\"f5a7e8cd-3913-4e00-b93f-baa02e2dcc5e\",\"password\":\"$2a$10$Zl4oWz.ngjgFDmey5yYahuR4Y.pa441tIi.bOP4xBH9uLdAc14lty\",\"userId\":\"fcfa49a0-9ca1-44d5-aaf4-0416d407b859\"}",
@@ -33,7 +42,18 @@
       "d8f0051e-1265-47a3-aafc-1b0876cb76f1": "{\"id\":\"d8f0051e-1265-47a3-aafc-1b0876cb76f1\",\"password\":\"$2a$10$Cd4OVgFOE9LuuwsKcrSgGOTpwr2.InNmxZfxC8IhF2U06mIzftdTa\",\"userId\":\"1314c44a-c3e0-499e-aba6-16c92d4b8b1b\"}",
       "a03f544d-7d83-4af8-a371-829d4eab4276": "{\"id\":\"a03f544d-7d83-4af8-a371-829d4eab4276\",\"password\":\"$2a$10$.bInu2tvjM5V/EHnKx3c.uYC1RifDeZ0P.wA9oinR/0i9CjtCuC7S\",\"userId\":\"d9516759-d497-4d67-be69-70af6b0786f8\"}",
       "eb3b7028-27d6-49e8-9bdc-875e35cb2c82": "{\"id\":\"eb3b7028-27d6-49e8-9bdc-875e35cb2c82\",\"password\":\"$2a$10$x73Vn7VGqcNmlVNkpqtrSOL2umzPCOt4TSFkk.nmSslPyHv9ijMiO\",\"userId\":\"0591f496-3e92-4efb-a16b-f0defaa5cf56\"}",
-      "5ef596ea-44fa-42c3-971e-6cba5c83441f": "{\"id\":\"5ef596ea-44fa-42c3-971e-6cba5c83441f\",\"password\":\"$2a$10$dLn/BcLDbM1SXWuClnGt6uS.VN.Gg3i/vlJN8tpj1l7ufpqXc66eW\",\"userId\":\"e5de5c71-6199-4269-9c33-7156f20db842\"}"
+      "5ef596ea-44fa-42c3-971e-6cba5c83441f": "{\"id\":\"5ef596ea-44fa-42c3-971e-6cba5c83441f\",\"password\":\"$2a$10$dLn/BcLDbM1SXWuClnGt6uS.VN.Gg3i/vlJN8tpj1l7ufpqXc66eW\",\"userId\":\"e5de5c71-6199-4269-9c33-7156f20db842\"}",
+      "313650a7-1871-4dbf-aa84-cb7d2184118a": "{\"id\":\"313650a7-1871-4dbf-aa84-cb7d2184118a\",\"password\":\"$2a$10$goIOEkRZshtPI7TRm6Y2HOkjkrb6k7aevWOl5ZJL652cCu3UkTvvG\",\"userId\":\"a24ee7c9-b522-418f-bb80-160c30ceba10\"}",
+      "4936d10d-c6df-4600-92f0-6dfb803ebea7": "{\"id\":\"4936d10d-c6df-4600-92f0-6dfb803ebea7\",\"password\":\"$2a$10$CU/GKC0q8GmxnL6dak0IneVc3kqD92R99.7ahWHhFOg1/7sHkVDe2\",\"userId\":\"7538bc3b-ec05-4e2b-9859-9d18636c1cb4\"}",
+      "18858202-a0a3-4cf2-b39d-df6bec8c78ea": "{\"id\":\"18858202-a0a3-4cf2-b39d-df6bec8c78ea\",\"password\":\"$2a$10$Zogrgdp/J0z/h6Tr/RNRyeZhMFj680DLT404qqk8rFXbfAOLvwmJq\",\"userId\":\"b2028783-a24f-4169-94b6-531edf7411aa\"}",
+      "42533372-ab6c-4ca8-9464-8e7605d8c075": "{\"id\":\"42533372-ab6c-4ca8-9464-8e7605d8c075\",\"password\":\"$2a$10$KXlEkOHfWU/6a96PKOxfOu5UggR9KkDH52K/PxwjQKV8cXzp05fbS\",\"userId\":\"12f2247f-57cb-403c-9422-6d71f291734b\"}",
+      "9d6d61ee-e3b5-4b93-b86b-bd3f08e991a6": "{\"id\":\"9d6d61ee-e3b5-4b93-b86b-bd3f08e991a6\",\"password\":\"$2a$10$S3pQ2UNHEMq3Hc5iKPrBuebZ3zEFPGeA0Jn/.EjOuhYRJuZwNZULa\",\"userId\":\"c8b91a60-9429-412c-8dc6-5de0858ad65a\"}",
+      "65140c61-f08f-4d8d-a046-dd14b4f88bba": "{\"id\":\"65140c61-f08f-4d8d-a046-dd14b4f88bba\",\"password\":\"$2a$10$9ncmqJYyGrNYsJzaJiL66O62xOeeS/tIbfBwRywyd6rSvoa9keLg2\",\"userId\":\"2f74dafe-d5c7-4e02-8d4a-6dd0364d48b1\"}",
+      "49131477-098e-401e-a9d5-73c18e0eece2": "{\"id\":\"49131477-098e-401e-a9d5-73c18e0eece2\",\"password\":\"$2a$10$eWThols3bIO0AzX83cXUX.RFUzQNVq2tBZvHMmtzyvsvF3ECZJm6u\",\"userId\":\"5c022b53-dccd-4206-9cb9-0f699c6dfcbc\"}",
+      "d23c88e9-e5b0-4797-93dd-e77090075676": "{\"id\":\"d23c88e9-e5b0-4797-93dd-e77090075676\",\"password\":\"$2a$10$3Y1vIxEdxloJBDqXpJHUfO1muDstj74Nm3.iZkSnvZM01CIg82Uae\",\"userId\":\"babe2057-f57f-43e8-8fdb-f2ca5709e3c7\"}"
+    },
+    "Migrations": {
+      "0": "{\"name\":\"010-create-admin-acc\",\"id\":0}"
     }
   }
 }

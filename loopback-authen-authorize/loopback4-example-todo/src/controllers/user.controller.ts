@@ -29,6 +29,8 @@ import { log } from 'console';
 import _, { find } from 'lodash';
 import { use } from 'should';
 import {JWTService} from '../services/jwt.service'
+import {basicAuthorization} from '../services/basic.authorizor';
+import {authorize} from '@loopback/authorization'
 
 @model()
 export class NewUserRequest extends User {
@@ -125,6 +127,33 @@ export class UserController {
     currentUserProfile: UserProfile,
   ){
     console.log(currentUserProfile);
+    const user = currentUserProfile[securityId];
+    // console.log("user: "+ JSON.stringify(user));
+    return currentUserProfile;
+  }
+
+  @authenticate('jwt')
+  @authorize({allowedRoles: ['admin'], voters: [basicAuthorization]})
+  @get('/admin', {
+    responses: {
+      '200': {
+        description: 'Return current user',
+        content: {
+          'application/json': {
+            schema: {
+              type: 'string',
+            },
+          },
+        },
+      },
+    },
+  })
+  async iAmAdmin(
+    @inject(SecurityBindings.USER)
+    currentUserProfile: UserProfile,
+  ){
+    console.log(currentUserProfile);
+    console.log('admin');
     const user = currentUserProfile[securityId];
     // console.log("user: "+ JSON.stringify(user));
     return currentUserProfile;

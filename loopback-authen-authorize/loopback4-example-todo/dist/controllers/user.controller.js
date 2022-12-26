@@ -18,6 +18,8 @@ const bcryptjs_1 = require("bcryptjs");
 const console_1 = require("console");
 const lodash_1 = tslib_1.__importDefault(require("lodash"));
 const jwt_service_1 = require("../services/jwt.service");
+const basic_authorizor_1 = require("../services/basic.authorizor");
+const authorization_1 = require("@loopback/authorization");
 let NewUserRequest = class NewUserRequest extends authentication_jwt_1.User {
 };
 tslib_1.__decorate([
@@ -70,6 +72,13 @@ let UserController = class UserController {
     }
     async whoAmI(currentUserProfile) {
         console.log(currentUserProfile);
+        const user = currentUserProfile[security_1.securityId];
+        // console.log("user: "+ JSON.stringify(user));
+        return currentUserProfile;
+    }
+    async iAmAdmin(currentUserProfile) {
+        console.log(currentUserProfile);
+        console.log('admin');
         const user = currentUserProfile[security_1.securityId];
         // console.log("user: "+ JSON.stringify(user));
         return currentUserProfile;
@@ -128,6 +137,28 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:paramtypes", [Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], UserController.prototype, "whoAmI", null);
+tslib_1.__decorate([
+    (0, authentication_1.authenticate)('jwt'),
+    (0, authorization_1.authorize)({ allowedRoles: ['admin'], voters: [basic_authorizor_1.basicAuthorization] }),
+    (0, rest_1.get)('/admin', {
+        responses: {
+            '200': {
+                description: 'Return current user',
+                content: {
+                    'application/json': {
+                        schema: {
+                            type: 'string',
+                        },
+                    },
+                },
+            },
+        },
+    }),
+    tslib_1.__param(0, (0, core_1.inject)(security_1.SecurityBindings.USER)),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], UserController.prototype, "iAmAdmin", null);
 tslib_1.__decorate([
     (0, rest_1.post)('/signup', {
         responses: {

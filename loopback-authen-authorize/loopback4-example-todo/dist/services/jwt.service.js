@@ -32,7 +32,7 @@ let JWTService = class JWTService {
                 [security_1.securityId]: decodedToken.id,
                 name: decodedToken.name,
                 id: decodedToken.id,
-                role: decodedToken.role,
+                roles: decodedToken.roles,
             });
         }
         catch (error) {
@@ -48,7 +48,7 @@ let JWTService = class JWTService {
             id: userProfile[security_1.securityId],
             name: userProfile.name,
             email: userProfile.email,
-            role: userProfile.role
+            roles: userProfile.roles
         };
         // Generate a JSON Web Token
         let token;

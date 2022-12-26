@@ -24,5 +24,6 @@ export declare class UserController {
         token: string;
     }>;
     whoAmI(currentUserProfile: UserProfile): Promise<UserProfile>;
+    iAmAdmin(currentUserProfile: UserProfile): Promise<UserProfile>;
     signUp(newUserRequest: NewUserRequest): Promise<User>;
 }

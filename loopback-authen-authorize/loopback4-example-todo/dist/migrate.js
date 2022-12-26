@@ -6,12 +6,14 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.migrate = void 0;
 const application_1 = require("./application");
+const migrations_1 = require("./migrations");
 async function migrate(args) {
     const existingSchema = args.includes('--rebuild') ? 'drop' : 'alter';
     console.log('Migrating schemas (%s existing schema)', existingSchema);
     const app = new application_1.TodoListApplication();
     await app.boot();
     await app.migrateSchema({ existingSchema });
+    await (0, migrations_1.migrations)(app);
     // Connectors usually keep a pool of opened connections,
     // this keeps the process running even after all work is done.
     // We need to exit explicitly.

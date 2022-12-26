@@ -103,6 +103,7 @@ import {MySequence} from './sequence';
 import { JWTService } from './services/jwt.service';
 import { MyUserService } from './services/user.service';
 import { UserServiceBindings } from './keys';
+import {AuthorizationComponent} from '@loopback/authorization';
 export {ApplicationConfig};
 
 export class TodoListApplication extends BootMixin(
@@ -136,7 +137,9 @@ export class TodoListApplication extends BootMixin(
     this.component(AuthenticationComponent);
     // Mount jwt component
     this.component(JWTAuthenticationComponent);
+    this.component(AuthorizationComponent);
     // Bind datasource
     this.dataSource(DbDataSource, UserServiceBindings.DATASOURCE_NAME);
+    //Authorize
   }
 }

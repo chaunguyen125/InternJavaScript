@@ -39,7 +39,7 @@ let MyUserService = class MyUserService {
             name: user.username,
             id: user.id,
             email: user.email,
-            role: user.role,
+            roles: user.roles,
         };
     }
     //function to find user by id
