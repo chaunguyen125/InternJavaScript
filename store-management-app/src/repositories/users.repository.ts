@@ -11,6 +11,7 @@ export class UsersRepository extends DefaultCrudRepository<
 > {
 
   public readonly rolemappings: HasManyRepositoryFactory<Rolemapping, typeof Users.prototype.id>;
+  findCredentials: any;
 
   constructor(
     @inject('datasources.db') dataSource: DbDataSource, @repository.getter('RolemappingRepository') protected rolemappingRepositoryGetter: Getter<RolemappingRepository>,

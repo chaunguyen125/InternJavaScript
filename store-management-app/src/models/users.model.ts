@@ -7,8 +7,9 @@ export class Users extends Entity {
     type: 'number',
     id: true,
     generated: true,
+    require: true,
   })
-  id?: number;
+  id: number;
 
   @property({
     type: 'string',

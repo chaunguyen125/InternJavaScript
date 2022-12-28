@@ -1,8 +1,8 @@
 {
   "ids": {
     "Todo": 5,
-    "User": 20,
-    "UserCredentials": 20,
+    "User": 21,
+    "UserCredentials": 21,
     "Migrations": 1
   },
   "models": {
@@ -30,7 +30,8 @@
       "c8b91a60-9429-412c-8dc6-5de0858ad65a": "{\"id\":\"c8b91a60-9429-412c-8dc6-5de0858ad65a\",\"email\":\"admin2@gmail.com\",\"roles\":\"['admin']\"}",
       "2f74dafe-d5c7-4e02-8d4a-6dd0364d48b1": "{\"id\":\"2f74dafe-d5c7-4e02-8d4a-6dd0364d48b1\",\"email\":\"admin3@gmail.com\",\"roles\":\"['admin']\"}",
       "5c022b53-dccd-4206-9cb9-0f699c6dfcbc": "{\"id\":\"5c022b53-dccd-4206-9cb9-0f699c6dfcbc\",\"email\":\"admin4@gmail.com\",\"roles\":\"['admin']\"}",
-      "babe2057-f57f-43e8-8fdb-f2ca5709e3c7": "{\"id\":\"babe2057-f57f-43e8-8fdb-f2ca5709e3c7\",\"email\":\"admin5@gmail.com\",\"roles\":\"['admin']\"}"
+      "babe2057-f57f-43e8-8fdb-f2ca5709e3c7": "{\"id\":\"babe2057-f57f-43e8-8fdb-f2ca5709e3c7\",\"email\":\"admin5@gmail.com\",\"roles\":\"['admin']\"}",
+      "b51a540e-4eab-47ed-b64e-d0723e1d00b6": "{\"id\":\"b51a540e-4eab-47ed-b64e-d0723e1d00b6\",\"email\":\"admin6@gmail.com\",\"roles\":\"['admin']\"}"
     },
     "UserCredentials": {
       "f5a7e8cd-3913-4e00-b93f-baa02e2dcc5e": "{\"id\":\"f5a7e8cd-3913-4e00-b93f-baa02e2dcc5e\",\"password\":\"$2a$10$Zl4oWz.ngjgFDmey5yYahuR4Y.pa441tIi.bOP4xBH9uLdAc14lty\",\"userId\":\"fcfa49a0-9ca1-44d5-aaf4-0416d407b859\"}",
@@ -50,7 +51,8 @@
       "9d6d61ee-e3b5-4b93-b86b-bd3f08e991a6": "{\"id\":\"9d6d61ee-e3b5-4b93-b86b-bd3f08e991a6\",\"password\":\"$2a$10$S3pQ2UNHEMq3Hc5iKPrBuebZ3zEFPGeA0Jn/.EjOuhYRJuZwNZULa\",\"userId\":\"c8b91a60-9429-412c-8dc6-5de0858ad65a\"}",
       "65140c61-f08f-4d8d-a046-dd14b4f88bba": "{\"id\":\"65140c61-f08f-4d8d-a046-dd14b4f88bba\",\"password\":\"$2a$10$9ncmqJYyGrNYsJzaJiL66O62xOeeS/tIbfBwRywyd6rSvoa9keLg2\",\"userId\":\"2f74dafe-d5c7-4e02-8d4a-6dd0364d48b1\"}",
       "49131477-098e-401e-a9d5-73c18e0eece2": "{\"id\":\"49131477-098e-401e-a9d5-73c18e0eece2\",\"password\":\"$2a$10$eWThols3bIO0AzX83cXUX.RFUzQNVq2tBZvHMmtzyvsvF3ECZJm6u\",\"userId\":\"5c022b53-dccd-4206-9cb9-0f699c6dfcbc\"}",
-      "d23c88e9-e5b0-4797-93dd-e77090075676": "{\"id\":\"d23c88e9-e5b0-4797-93dd-e77090075676\",\"password\":\"$2a$10$3Y1vIxEdxloJBDqXpJHUfO1muDstj74Nm3.iZkSnvZM01CIg82Uae\",\"userId\":\"babe2057-f57f-43e8-8fdb-f2ca5709e3c7\"}"
+      "d23c88e9-e5b0-4797-93dd-e77090075676": "{\"id\":\"d23c88e9-e5b0-4797-93dd-e77090075676\",\"password\":\"$2a$10$3Y1vIxEdxloJBDqXpJHUfO1muDstj74Nm3.iZkSnvZM01CIg82Uae\",\"userId\":\"babe2057-f57f-43e8-8fdb-f2ca5709e3c7\"}",
+      "f854c890-dccc-4284-aa1d-3502cad11b1c": "{\"id\":\"f854c890-dccc-4284-aa1d-3502cad11b1c\",\"password\":\"$2a$10$jeIpivCn8pTuTYxo7xl5o.zwz53QLOSx8/9.MF2qKTvJWTNLvxvU.\",\"userId\":\"b51a540e-4eab-47ed-b64e-d0723e1d00b6\"}"
     },
     "Migrations": {
       "0": "{\"name\":\"010-create-admin-acc\",\"id\":0}"

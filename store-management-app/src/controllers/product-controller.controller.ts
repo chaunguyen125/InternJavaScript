@@ -19,6 +19,9 @@ import {
 } from '@loopback/rest';
 import {Products} from '../models';
 import {ProductsRepository} from '../repositories';
+import {authenticate, TokenService} from '@loopback/authentication';
+
+
 
 export class ProductControllerController {
   constructor(
@@ -26,6 +29,7 @@ export class ProductControllerController {
     public productsRepository : ProductsRepository,
   ) {}
 
+  @authenticate('jwt')
   @post('/products')
   @response(200, {
     description: 'Products model instance',
